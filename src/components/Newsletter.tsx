@@ -40,37 +40,39 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-10 md:py-14 bg-[#FAF7F2]">
+    <section className="py-8 sm:py-10 md:py-12 bg-[#FAF7F2]">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Banner with user's uploaded background asset */}
         <div
-          className="relative rounded-3xl overflow-hidden border border-[#cfe2ce] shadow-md bg-gradient-to-r from-[#d9edd2] via-[#e8f5df] to-[#d4eccd] p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+          className="relative rounded-[32px] sm:rounded-full overflow-hidden shadow-md px-6 sm:px-10 lg:px-14 py-6 sm:py-7 lg:py-8 flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6 border border-[#b2d8aa]/40"
           style={{
             backgroundImage: "url('/images/newsletter-banner.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
         >
           {/* Left Content */}
-          <div className="relative z-10 space-y-1 max-w-xl">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#173e2d] tracking-tight font-serif uppercase">
+          <div className="relative z-10 max-w-xl pl-2 sm:pl-4 lg:pl-6">
+            <h3 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-black text-[#112a1d] tracking-tight uppercase font-sans leading-tight">
               GET HEALTH TIPS, OFFERS &amp; NEW ARRIVALS
             </h3>
-            <p className="text-sm sm:text-base text-[#385141] font-medium">
+            <p className="text-xs sm:text-sm text-[#2b4b35] font-semibold mt-1">
               Subscribe to our newsletter and stay updated.
             </p>
           </div>
 
           {/* Right Input Form */}
-          <div className="relative z-10 w-full lg:w-auto">
+          <div className="relative z-10 w-full lg:w-auto pr-2 sm:pr-4 lg:pr-6">
             {subscribed ? (
-              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-md px-5 py-3 rounded-full text-[#166534] font-semibold shadow-sm">
-                <CheckCircle2 className="w-5 h-5 text-[#166534]" />
+              <div className="flex items-center gap-2 bg-white/95 px-6 py-3 rounded-full text-[#14532d] font-bold shadow-sm text-xs sm:text-sm">
+                <CheckCircle2 className="w-4 h-4 text-[#166534]" />
                 <span>Thank you for subscribing!</span>
               </div>
             ) : (
               <form
                 onSubmit={handleSubscribe}
-                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 bg-white/95 p-1.5 sm:p-1 rounded-2xl sm:rounded-full border border-[#b8dab2] shadow-sm max-w-md w-full"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full"
               >
                 <input
                   type="email"
@@ -78,15 +80,15 @@ export default function Newsletter() {
                   placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="px-4 py-2.5 text-sm outline-none text-[#173e2d] placeholder-gray-500 rounded-full flex-1 bg-transparent"
+                  className="px-5 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full bg-white text-[#112a1d] placeholder-gray-400 outline-none shadow-sm min-w-[240px] sm:min-w-[280px] md:min-w-[320px] border border-transparent focus:border-[#256047]"
                 />
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 bg-[#173e2d] hover:bg-[#112d20] text-white text-sm font-bold px-6 py-2.5 rounded-full shadow transition-all hover:gap-3 disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 bg-[#0c2217] hover:bg-[#143825] text-white text-xs sm:text-sm font-extrabold px-6 sm:px-7 py-2.5 sm:py-3 rounded-full shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 shrink-0"
                 >
-                  <span>{loading ? "Subscribing..." : "Subscribe"}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>{loading ? "..." : "Subscribe"}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </form>
             )}

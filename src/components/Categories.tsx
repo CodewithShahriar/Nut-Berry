@@ -48,11 +48,10 @@ export default function Categories() {
                   role="button"
                   tabIndex={0}
                   title={`View ${cat.name}`}
-                  className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
-                    isActive
-                      ? "ring-4 ring-[#256047] scale-[1.03] shadow-md"
-                      : "hover:ring-2 hover:ring-[#256047]/40"
-                  }`}
+                  className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${isActive
+                    ? "ring-4 ring-[#256047] scale-[1.03] shadow-md"
+                    : "hover:ring-2 hover:ring-[#256047]/40"
+                    }`}
                 >
                   <img
                     src={cat.image}
