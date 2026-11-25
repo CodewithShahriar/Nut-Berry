@@ -21,7 +21,8 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#ece6db]/60 transition-all">
+    <>
+      <header className="fixed top-0 inset-x-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#ece6db]/80 shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
@@ -124,7 +125,12 @@ export default function Navbar() {
                     type="text"
                     placeholder="Search dry fruits..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      if (currentPage !== "home") {
+                        navigateTo("home", "featured-products");
+                      }
+                    }}
                     autoFocus
                     className="w-36 sm:w-48 text-sm outline-none bg-transparent text-[#1e2d24]"
                   />
@@ -190,30 +196,38 @@ export default function Navbar() {
               Home
             </Link>
             <button
+              type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
-                const section = document.getElementById("featured-products");
-                section?.scrollIntoView({ behavior: "smooth" });
+                setSelectedCategory(null);
+                navigateTo("home", "featured-products");
               }}
               className="block w-full text-left px-3 py-2 text-base font-medium text-[#2f3e35] hover:bg-[#f5f1e6] rounded-lg"
             >
               Shop All Dry Fruits
             </button>
-            <a
-              href="#about-section"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-[#2f3e35] hover:bg-[#f5f1e6] rounded-lg"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigateTo("home", "about-section");
+              }}
+              className="block w-full text-left px-3 py-2 text-base font-medium text-[#2f3e35] hover:bg-[#f5f1e6] rounded-lg"
             >
               About
-            </a>
-            <a
-              href="#quality-section"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-[#2f3e35] hover:bg-[#f5f1e6] rounded-lg"
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigateTo("home", "quality-section");
+              }}
+              className="block w-full text-left px-3 py-2 text-base font-medium text-[#2f3e35] hover:bg-[#f5f1e6] rounded-lg"
             >
               Quality &amp; Sourcing
-            </a>
+            </button>
             <button
+              type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
                 navigateTo("contact");
@@ -225,6 +239,8 @@ export default function Navbar() {
           </div>
         )}
       </div>
-    </header>
+      </header>
+      <div className="h-20 shrink-0" aria-hidden="true" />
+    </>
   );
 }

@@ -41,7 +41,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#ECE8D9] overflow-x-clip">
+    <div className="relative min-h-screen bg-[#ECE8D9]">
       <BotanicalBackground />
 
       {/* Deep Forest Green Header Banner */}
