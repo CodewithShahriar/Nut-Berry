@@ -20,19 +20,19 @@ export default function Categories() {
 
   return (
     <section className="relative z-20 -mt-6 sm:-mt-8 md:-mt-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
-      {/* Floating White Master Container matching Reference */}
+      {/* Floating Master Container matching exact Reference */}
       <div className="w-full bg-[#FAF7F2] rounded-3xl sm:rounded-[32px] p-5 sm:p-6 lg:p-7 border border-[#e8dfcf] shadow-xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 lg:gap-8">
-          {/* Left Title: EXPLORE / OUR CATEGORIES matching exact reference crop */}
+          {/* Left Title: EXPLORE / OUR CATEGORIES matching exact Bebas Neue / condensed font */}
           <div className="shrink-0 md:min-w-[170px] lg:min-w-[190px] flex flex-col justify-center">
-            <span className="text-[11px] sm:text-[12px] font-black tracking-[0.2em] text-[#256047] uppercase block mb-1">
+            <span className="text-[12px] sm:text-[13px] font-extrabold tracking-[0.18em] text-[#1e3d2a] uppercase block mb-1">
               EXPLORE
             </span>
-            <h2 className="text-[28px] sm:text-[32px] lg:text-[34px] font-black text-[#133527] uppercase tracking-tight leading-[0.95] font-sans">
+            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-condensed tracking-tight text-[#143d2c] uppercase leading-[0.92]">
               OUR <br />
               CATEGORIES
             </h2>
-            <span className="w-10 h-[3.5px] bg-[#256047] rounded-full mt-2.5 inline-block" />
+            <span className="w-11 h-[3.5px] bg-[#256047] rounded-full mt-2 inline-block" />
           </div>
 
           {/* Right 5 Category Cards */}
@@ -44,7 +44,7 @@ export default function Categories() {
                 <div
                   key={cat.id}
                   onClick={() => handleCategoryClick(cat.slug)}
-                  className={`group relative rounded-2xl overflow-hidden aspect-[134/106] cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
+                  className={`group relative rounded-2xl overflow-hidden aspect-[138/136] cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
                     isActive
                       ? "ring-4 ring-[#256047] scale-[1.03] shadow-md"
                       : "border border-black/10 hover:border-[#256047]/40"

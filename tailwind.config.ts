@@ -30,6 +30,7 @@ const config: Config = {
         },
       },
       fontFamily: {
+        condensed: ["'Bebas Neue'", "'Oswald'", "Impact", "sans-serif"],
         serif: ["'Playfair Display'", "Georgia", "Cambria", "'Times New Roman'", "serif"],
         sans: ["'Plus Jakarta Sans'", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
       },
