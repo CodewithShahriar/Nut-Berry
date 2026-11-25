@@ -26,29 +26,24 @@ export default function Hero() {
           className="object-cover object-right lg:object-center select-none"
         />
         {/* Seamless dark green gradient on the left for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0c2217] via-[#0c2217]/90 via-40% to-transparent to-75% hidden sm:block pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c2217] via-[#0c2217]/95 via-35% to-transparent to-70% hidden sm:block pointer-events-none" />
         {/* Mobile full overlay so text is readable */}
-        <div className="absolute inset-0 bg-[#0c2217]/80 sm:hidden pointer-events-none" />
+        <div className="absolute inset-0 bg-[#0c2217]/85 sm:hidden pointer-events-none" />
       </div>
 
-      {/* Floating Decorative Leaf Accents matching the image */}
-      <div className="absolute top-6 left-[42%] w-6 h-6 opacity-80 pointer-events-none hidden md:block">
+      {/* Floating Decorative Leaf Accent matching reference */}
+      <div className="absolute top-6 left-[41%] w-6 h-6 opacity-75 pointer-events-none hidden md:block">
         <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#74c69d]/80 rotate-12">
-          <path
-            d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2Z"
-            fill="currentColor"
-            opacity="0.3"
-          />
           <path
             d="M20.5 3.5C14.5 3.5 9 8 7 13.5C5.5 17.5 7 21 7 21C7 21 10.5 22.5 14.5 21C20 19 24.5 13.5 24.5 7.5C24.5 5 22.5 3.5 20.5 3.5Z"
             fill="currentColor"
-            opacity="0.75"
+            opacity="0.8"
           />
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-24 lg:py-28 min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] flex flex-col justify-center">
-        <div className="max-w-xl lg:max-w-2xl space-y-3.5 sm:space-y-4">
+      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-24 md:pb-28 min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-center">
+        <div className="max-w-xl lg:max-w-2xl space-y-3 sm:space-y-3.5">
           {/* Top Tag: PREMIUM & NATURAL — */}
           <div className="flex items-center gap-2">
             <span className="text-[#a7f3d0] text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase">
@@ -68,16 +63,16 @@ export default function Hero() {
           </h2>
 
           {/* Paragraph */}
-          <p className="text-xs sm:text-sm md:text-base text-gray-200/90 leading-relaxed font-normal max-w-md pt-1">
+          <p className="text-xs sm:text-sm md:text-base text-gray-200/90 leading-relaxed font-normal max-w-md pt-0.5">
             Handpicked with care, our dry fruits are packed with essential nutrients for a healthier and happier you.
           </p>
 
           {/* Buttons Row */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-3 sm:pt-5">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-3 sm:pt-4">
             {/* Shop Dry Fruits -> */}
             <button
               onClick={scrollToShop}
-              className="group inline-flex items-center gap-2 bg-[#FAF7F2] text-[#0f2a1d] hover:bg-white text-xs sm:text-sm font-extrabold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              className="group inline-flex items-center gap-2 bg-[#FAF7F2] text-[#0f2a1d] hover:bg-white text-xs sm:text-sm font-extrabold px-6 sm:px-7 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Shop Dry Fruits</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -97,7 +92,7 @@ export default function Hero() {
         </div>
 
         {/* Floating Badge (FRESH HARVEST) positioned bottom right over rustic table */}
-        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6 lg:bottom-10 lg:right-12 z-20">
+        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-8 sm:right-6 lg:bottom-12 lg:right-10 z-20">
           <div className="relative bg-[#0e3321]/90 backdrop-blur-md text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl border border-[#2b6a48]/70 shadow-2xl flex items-center gap-3 max-w-[260px] sm:max-w-[280px]">
             {/* Leaf Accent Icon */}
             <div className="w-9 h-9 rounded-full bg-[#1b4e33] flex items-center justify-center shrink-0 border border-[#40916c]/40">
