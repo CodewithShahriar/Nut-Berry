@@ -18,12 +18,12 @@ export default function Categories() {
   };
 
   return (
-    <section className="relative z-20 -mt-16 sm:-mt-20 md:-mt-24 lg:-mt-28 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 md:mb-10">
+    <section className="relative z-20 -mt-22 sm:-mt-26 md:-mt-30 lg:-mt-34 max-w-[1280px] mx-auto px-2 sm:px-4 lg:px-6 mb-6 sm:mb-8 md:mb-10">
       {/* Floating Master Container matching exact Reference */}
-      <div className="w-full bg-[#FAF7F2] rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 border border-[#e5decb] shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-5 lg:gap-6">
+      <div className="w-full bg-[#FAF7F2] rounded-2xl sm:rounded-3xl p-3.5 sm:p-4.5 lg:p-5 border border-[#e5decb] shadow-[0_14px_45px_rgba(0,0,0,0.08)]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 lg:gap-5">
           {/* Left Title: EXPLORE OUR CATEGORIES */}
-          <div className="shrink-0 flex flex-col justify-center select-none text-left min-w-[140px] sm:min-w-[155px] lg:min-w-[170px] pr-2">
+          <div className="shrink-0 flex flex-col justify-center select-none text-left min-w-[130px] sm:min-w-[150px] lg:min-w-[165px] pl-1 pr-1 sm:pr-2">
             <span className="text-[10px] sm:text-[11px] font-black tracking-[0.22em] text-[#1c2e24] uppercase block">
               EXPLORE
             </span>
@@ -37,7 +37,7 @@ export default function Categories() {
           </div>
 
           {/* Right 5 Category Cards */}
-          <div className="flex-1 w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 lg:gap-3.5">
+          <div className="flex-1 w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 sm:gap-3 lg:gap-3.5">
             {CATEGORIES.map((cat) => {
               const isActive = selectedCategory === cat.slug;
 
@@ -48,18 +48,17 @@ export default function Categories() {
                   role="button"
                   tabIndex={0}
                   title={`View ${cat.name}`}
-                  className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${isActive
-                    ? "ring-4 ring-[#256047] scale-[1.03] shadow-md"
-                    : "hover:ring-2 hover:ring-[#256047]/40"
-                    }`}
+                  className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-full aspect-[1.1/1] ${
+                    isActive
+                      ? "ring-4 ring-[#256047] scale-[1.03] shadow-md"
+                      : "hover:ring-2 hover:ring-[#256047]/40"
+                  }`}
                 >
                   <img
                     src={cat.image}
                     alt={cat.name}
-                    width={138}
-                    height={136}
                     loading="eager"
-                    className="w-full h-auto block object-cover object-center transform group-hover:scale-105 transition-transform duration-300 select-none pointer-events-none"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-300 select-none pointer-events-none"
                   />
                 </div>
               );
