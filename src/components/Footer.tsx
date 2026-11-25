@@ -29,10 +29,10 @@ export default function Footer() {
               onClick={() => navigateTo("home")}
               className="flex items-center gap-2.5 group text-left"
             >
-              <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
-                <Leaf className="w-5 h-5 text-[#256047]" />
+              <div className="w-9 h-9 rounded-full bg-[#256047] flex items-center justify-center text-white shrink-0 shadow-sm border border-[#3d9670]/40">
+                <Leaf className="w-5 h-5 text-[#86efac]" />
               </div>
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-white font-sans">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-serif">
                 Nut &amp; Berry
               </span>
             </button>
