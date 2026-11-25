@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 import { useStore } from "@/context/StoreContext";
-import { LeafCluster } from "@/components/BotanicalBackdrop";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -52,9 +51,6 @@ export default function Newsletter() {
   return (
     <section className="relative z-10 py-8 sm:py-10 md:py-12 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Decorative Botanical Leaf peeking on top-left corner matching reference */}
-        <LeafCluster className="absolute -left-8 sm:-left-12 lg:-left-14 -top-6 sm:-top-8 w-20 sm:w-24 lg:w-28 z-30 -rotate-12" />
-
         {/* Deep Forest Green Newsletter Banner */}
         <div className="relative w-full bg-[#0d2b1d] rounded-2xl sm:rounded-3xl px-6 sm:px-10 lg:px-12 py-6 sm:py-7 lg:py-8 shadow-[0_14px_40px_rgba(12,34,23,0.18)] flex flex-col lg:flex-row lg:items-center justify-between gap-6 border border-[#1a432f]">
           {/* Left Icon + Copy */}
