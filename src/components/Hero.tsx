@@ -14,88 +14,104 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#1b4332] via-[#24523e] to-[#173e2d] text-white pt-8 pb-14 md:py-20 lg:py-24">
-      {/* Background organic leaf accents */}
-      <div className="absolute inset-0 opacity-15 pointer-events-none mix-blend-overlay">
-        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#52b788] blur-3xl" />
-        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-[#74c69d] blur-3xl" />
+    <section className="relative w-full overflow-hidden bg-[#0c2217] text-white">
+      {/* Background Image: Panoramic Hero Bowl with Rustic Table & Foliage */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-bowl.jpg"
+          alt="Premium Dry Fruits Assortment"
+          fill
+          priority
+          quality={100}
+          className="object-cover object-right lg:object-center select-none"
+        />
+        {/* Seamless dark green gradient on the left for crisp text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c2217] via-[#0c2217]/90 via-40% to-transparent to-75% hidden sm:block pointer-events-none" />
+        {/* Mobile full overlay so text is readable */}
+        <div className="absolute inset-0 bg-[#0c2217]/80 sm:hidden pointer-events-none" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Text Content */}
-          <div className="lg:col-span-6 z-10 space-y-6">
-            <div className="flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-[#86efac]"></span>
-              <span className="text-[#86efac] text-xs sm:text-sm font-bold tracking-widest uppercase">
-                PREMIUM &amp; NATURAL
-              </span>
-            </div>
+      {/* Floating Decorative Leaf Accents matching the image */}
+      <div className="absolute top-6 left-[42%] w-6 h-6 opacity-80 pointer-events-none hidden md:block">
+        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#74c69d]/80 rotate-12">
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2Z"
+            fill="currentColor"
+            opacity="0.3"
+          />
+          <path
+            d="M20.5 3.5C14.5 3.5 9 8 7 13.5C5.5 17.5 7 21 7 21C7 21 10.5 22.5 14.5 21C20 19 24.5 13.5 24.5 7.5C24.5 5 22.5 3.5 20.5 3.5Z"
+            fill="currentColor"
+            opacity="0.75"
+          />
+        </svg>
+      </div>
 
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-serif leading-[1.08]">
-                DRY FRUITS
-              </h1>
-              <p className="text-lg sm:text-2xl font-bold tracking-wider text-[#b7e4c7] uppercase">
-                NATURE&apos;S POWER SNACK
-              </p>
-            </div>
-
-            <p className="text-sm sm:text-base text-[#e0eade] max-w-lg leading-relaxed font-normal">
-              Handpicked with care, our dry fruits are packed with essential nutrients for a healthier and happier you.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
-              {/* Primary CTA */}
-              <button
-                onClick={scrollToShop}
-                className="group inline-flex items-center gap-2.5 bg-white text-[#173e2d] hover:bg-[#eef5f0] text-sm sm:text-base font-bold px-6 sm:px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <span>Shop Dry Fruits</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
-
-              {/* Story Video Button */}
-              <button
-                onClick={() => setIsVideoOpen(true)}
-                className="inline-flex items-center gap-3 text-white hover:text-[#b7e4c7] font-semibold text-sm sm:text-base transition-colors group"
-              >
-                <span className="w-11 h-11 rounded-full border-2 border-white/80 group-hover:border-[#b7e4c7] flex items-center justify-center transition-all bg-white/10 backdrop-blur-sm group-hover:scale-105">
-                  <Play className="w-4 h-4 fill-white group-hover:fill-[#b7e4c7] ml-0.5" />
-                </span>
-                <span>Our Story</span>
-              </button>
-            </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-24 lg:py-28 min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] flex flex-col justify-center">
+        <div className="max-w-xl lg:max-w-2xl space-y-3.5 sm:space-y-4">
+          {/* Top Tag: PREMIUM & NATURAL — */}
+          <div className="flex items-center gap-2">
+            <span className="text-[#a7f3d0] text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase">
+              PREMIUM &amp; NATURAL
+            </span>
+            <span className="w-9 h-[2px] bg-[#a7f3d0]/80 inline-block rounded-full"></span>
           </div>
 
-          {/* Right Hero Image Composition */}
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[540px] aspect-[16/10] sm:aspect-[16/9] lg:aspect-[15/10] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
-              <Image
-                src="/images/hero-bowl.jpg"
-                alt="Nut & Berry Premium Dry Fruits Bowl"
-                fill
-                priority
-                className="object-cover object-center transform hover:scale-105 transition-transform duration-700"
-              />
+          {/* Heading: DRY FRUITS (Ultra Bold Sans-serif) */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase leading-[0.95] drop-shadow-sm font-sans">
+            DRY FRUITS
+          </h1>
 
-              {/* Gradient edge overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          {/* Subheading: NATURE'S POWER SNACK */}
+          <h2 className="text-lg sm:text-xl md:text-2xl font-black tracking-[0.14em] text-white uppercase pt-0.5">
+            NATURE&apos;S POWER SNACK
+          </h2>
 
-              {/* Floating Quality Badge */}
-              <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-[#143e2c]/90 backdrop-blur-md text-white p-3 sm:p-4 rounded-2xl border border-white/20 shadow-xl flex items-center gap-3 max-w-[250px]">
-                <div className="w-10 h-10 rounded-xl bg-[#2d7857] flex items-center justify-center shrink-0">
-                  <Leaf className="w-5 h-5 text-[#a7f3d0]" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-extrabold tracking-wide uppercase text-[#86efac]">
-                    FRESH HARVEST
-                  </div>
-                  <div className="text-[11px] text-gray-200 font-medium">
-                    100% Natural • No Preservatives
-                  </div>
-                  <div className="text-[10px] text-gray-300">Increased Selection</div>
-                </div>
+          {/* Paragraph */}
+          <p className="text-xs sm:text-sm md:text-base text-gray-200/90 leading-relaxed font-normal max-w-md pt-1">
+            Handpicked with care, our dry fruits are packed with essential nutrients for a healthier and happier you.
+          </p>
+
+          {/* Buttons Row */}
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-3 sm:pt-5">
+            {/* Shop Dry Fruits -> */}
+            <button
+              onClick={scrollToShop}
+              className="group inline-flex items-center gap-2 bg-[#FAF7F2] text-[#0f2a1d] hover:bg-white text-xs sm:text-sm font-extrabold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <span>Shop Dry Fruits</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
+
+            {/* (▶) Our Story */}
+            <button
+              onClick={() => setIsVideoOpen(true)}
+              className="inline-flex items-center gap-2.5 text-white hover:text-[#a7f3d0] font-bold text-xs sm:text-sm transition-colors group"
+            >
+              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white/80 group-hover:border-[#a7f3d0] flex items-center justify-center transition-all bg-black/20 backdrop-blur-sm group-hover:scale-105">
+                <Play className="w-3.5 h-3.5 fill-white group-hover:fill-[#a7f3d0] ml-0.5" />
+              </span>
+              <span>Our Story</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Floating Badge (FRESH HARVEST) positioned bottom right over rustic table */}
+        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6 lg:bottom-10 lg:right-12 z-20">
+          <div className="relative bg-[#0e3321]/90 backdrop-blur-md text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl border border-[#2b6a48]/70 shadow-2xl flex items-center gap-3 max-w-[260px] sm:max-w-[280px]">
+            {/* Leaf Accent Icon */}
+            <div className="w-9 h-9 rounded-full bg-[#1b4e33] flex items-center justify-center shrink-0 border border-[#40916c]/40">
+              <Leaf className="w-4 h-4 text-[#86efac]" />
+            </div>
+            <div>
+              <div className="text-xs sm:text-sm font-black tracking-wider uppercase text-[#86efac]">
+                FRESH HARVEST
+              </div>
+              <div className="text-[10px] sm:text-[11px] text-gray-200 font-semibold leading-tight mt-0.5">
+                100% Natural • No Preservatives
+              </div>
+              <div className="text-[9px] sm:text-[10px] text-gray-300 font-normal">
+                Increased Selection
               </div>
             </div>
           </div>
