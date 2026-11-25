@@ -31,9 +31,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[#0c2217]/85 sm:hidden pointer-events-none" />
       </div>
 
-      {/* Floating Decorative Leaf Accent matching reference */}
+      {/* Floating Decorative Leaf Accent */}
       <div className="absolute top-6 left-[41%] w-6 h-6 opacity-75 pointer-events-none hidden md:block">
-        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#74c69d]/80 rotate-12">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#74c69d]/80 rotate-12">
           <path
             d="M20.5 3.5C14.5 3.5 9 8 7 13.5C5.5 17.5 7 21 7 21C7 21 10.5 22.5 14.5 21C20 19 24.5 13.5 24.5 7.5C24.5 5 22.5 3.5 20.5 3.5Z"
             fill="currentColor"
