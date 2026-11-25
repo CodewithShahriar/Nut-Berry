@@ -13,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0c2217] text-white">
+    <section id="hero-section" className="relative w-full overflow-hidden bg-[#0c2217] text-white">
       {/* Background Image: Panoramic Hero Bowl with Rustic Table & Foliage */}
       <div
         className="absolute inset-0 z-0"

@@ -83,22 +83,28 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   }, [wishlist]);
 
   useEffect(() => {
-    const handlePopState = () => {
+    const syncFromPath = () => {
       const isContact = window.location.pathname.toLowerCase().startsWith("/contact");
       setCurrentPage(isContact ? "contact" : "home");
     };
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
+    syncFromPath();
+    window.addEventListener("popstate", syncFromPath);
+    return () => window.removeEventListener("popstate", syncFromPath);
   }, []);
 
   const navigateTo = (page: "home" | "contact", sectionId?: string) => {
-    setCurrentPage(page);
     if (typeof window !== "undefined") {
+      // If running inside Next.js multi-page route (/contact), do a clean route navigation back to /
+      if (page === "home" && !document.getElementById("hero-section") && window.location.pathname.toLowerCase().startsWith("/contact")) {
+        window.location.href = sectionId ? `/#${sectionId}` : "/";
+        return;
+      }
       const targetUrl = page === "contact" ? "/contact" : "/";
       if (window.location.pathname !== targetUrl) {
         window.history.pushState({}, "", targetUrl);
       }
     }
+    setCurrentPage(page);
     if (page === "contact") {
       window.scrollTo(0, 0);
       return;
