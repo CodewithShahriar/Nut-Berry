@@ -20,22 +20,22 @@ export default function Categories() {
 
   return (
     <section className="relative z-20 -mt-6 sm:-mt-8 md:-mt-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
-      {/* Floating White Master Container matching Picture 2 */}
+      {/* Floating White Master Container matching Reference */}
       <div className="w-full bg-[#FAF7F2] rounded-3xl sm:rounded-[32px] p-5 sm:p-6 lg:p-7 border border-[#e8dfcf] shadow-xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 lg:gap-8">
-          {/* Left Title: EXPLORE / OUR CATEGORIES */}
-          <div className="shrink-0 md:min-w-[170px] lg:min-w-[200px]">
-            <span className="text-[11px] sm:text-xs font-black tracking-[0.2em] text-[#256047] uppercase block">
+          {/* Left Title: EXPLORE / OUR CATEGORIES matching exact reference crop */}
+          <div className="shrink-0 md:min-w-[170px] lg:min-w-[190px] flex flex-col justify-center">
+            <span className="text-[11px] sm:text-[12px] font-black tracking-[0.2em] text-[#256047] uppercase block mb-1">
               EXPLORE
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#133527] uppercase tracking-tight leading-[1.05] mt-1 font-sans">
+            <h2 className="text-[28px] sm:text-[32px] lg:text-[34px] font-black text-[#133527] uppercase tracking-tight leading-[0.95] font-sans">
               OUR <br />
               CATEGORIES
             </h2>
-            <div className="w-11 h-[3.5px] bg-[#256047] rounded-full mt-2.5" />
+            <span className="w-10 h-[3.5px] bg-[#256047] rounded-full mt-2.5 inline-block" />
           </div>
 
-          {/* Right 5 Category Cards (Full bleed with exact Picture 2 cards) */}
+          {/* Right 5 Category Cards */}
           <div className="flex-1 w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-3.5 lg:gap-4">
             {CATEGORIES.map((cat) => {
               const isActive = selectedCategory === cat.slug;
