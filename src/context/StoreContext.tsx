@@ -94,6 +94,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       return [...prev, { product, quantity, selectedWeight: weight }];
     });
     showToast(`Added ${product.name} to cart!`);
+    setIsCartOpen(true);
   };
 
   const removeFromCart = (productId: string, weight: string = "500g") => {

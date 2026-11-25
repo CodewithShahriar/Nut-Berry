@@ -20,7 +20,7 @@ import Toast from "./components/Toast";
 export default function App() {
   return (
     <StoreProvider>
-      <div className="min-h-screen flex flex-col bg-[#ECE8D9] text-[#1c2e24] overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-[#ECE8D9] text-[#1c2e24] overflow-x-clip">
         <Navbar />
         <main className="flex-1 relative">
           <BotanicalBackground />

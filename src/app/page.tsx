@@ -11,7 +11,7 @@ import { BotanicalBackground } from "@/components/BotanicalBackdrop";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col bg-[#ECE8D9] relative overflow-x-hidden">
+    <main className="min-h-screen flex flex-col bg-[#ECE8D9] relative overflow-x-clip">
       <BotanicalBackground />
       {/* 1. Header Navigation */}
       <Navbar />

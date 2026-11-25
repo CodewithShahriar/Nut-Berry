@@ -116,7 +116,7 @@ export default function FeaturedProducts() {
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
-                    className="h-full w-auto max-w-full block mix-blend-multiply transform scale-[1.16] group-hover:scale-[1.22] transition-transform duration-300 select-none"
+                    className="h-full w-auto max-w-full block mix-blend-multiply brightness-[1.08] contrast-[1.03] transform scale-[1.16] group-hover:scale-[1.22] transition-transform duration-300 select-none"
                     style={{ clipPath: "inset(2% 6% 2% 4%)" }}
                   />
 
