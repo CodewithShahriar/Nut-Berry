@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Heart, ShoppingBag, ArrowRight, Eye, Leaf } from "lucide-react";
 import { useStore } from "@/context/StoreContext";
@@ -17,6 +17,8 @@ export default function FeaturedProducts() {
     searchQuery,
   } = useStore();
 
+  const [showAll, setShowAll] = useState(false);
+
   let filtered = [...PRODUCTS];
 
   if (selectedCategory) {
@@ -30,8 +32,9 @@ export default function FeaturedProducts() {
     );
   }
 
-  // Focus primarily on the 4 featured products from reference when not filtered
-  const displayProducts = !selectedCategory && !searchQuery ? filtered.slice(0, 4) : filtered;
+  // Show 4 featured products by default, or all products when "View All Products" / filter is active
+  const displayProducts =
+    !selectedCategory && !searchQuery && !showAll ? filtered.slice(0, 4) : filtered;
 
   return (
     <section id="featured-products" className="relative z-10 pt-2 sm:pt-4 md:pt-6 pb-12 md:pb-16 bg-transparent">
@@ -73,10 +76,15 @@ export default function FeaturedProducts() {
             )}
 
             <button
-              onClick={() => setSelectedCategory(null)}
+              onClick={() => {
+                setSelectedCategory(null);
+                setShowAll((prev) => (selectedCategory ? true : !prev));
+              }}
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-[#133527] hover:text-[#256047] transition-colors group"
             >
-              <span>View All Products</span>
+              <span>
+                {showAll && !selectedCategory ? "Show Featured Only" : `View All Products (${PRODUCTS.length})`}
+              </span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
