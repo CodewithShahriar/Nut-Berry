@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { Heart, ShoppingBag, ArrowRight, Eye, Leaf } from "lucide-react";
 import { useStore } from "@/context/StoreContext";
@@ -17,8 +17,6 @@ export default function FeaturedProducts() {
     searchQuery,
   } = useStore();
 
-  const [showAll, setShowAll] = useState(false);
-
   let filtered = [...PRODUCTS];
 
   if (selectedCategory) {
@@ -32,9 +30,8 @@ export default function FeaturedProducts() {
     );
   }
 
-  // Show 4 featured products by default, or all products when "View All Products" / filter is active
-  const displayProducts =
-    !selectedCategory && !searchQuery && !showAll ? filtered.slice(0, 4) : filtered;
+  // Show all products by default (filtered when category or search is active)
+  const displayProducts = filtered;
 
   return (
     <section id="featured-products" className="relative z-10 pt-2 sm:pt-4 md:pt-6 pb-12 md:pb-16 bg-transparent">
@@ -76,15 +73,10 @@ export default function FeaturedProducts() {
             )}
 
             <button
-              onClick={() => {
-                setSelectedCategory(null);
-                setShowAll((prev) => (selectedCategory ? true : !prev));
-              }}
+              onClick={() => setSelectedCategory(null)}
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-[#133527] hover:text-[#256047] transition-colors group"
             >
-              <span>
-                {showAll && !selectedCategory ? "Show Featured Only" : `View All Products (${PRODUCTS.length})`}
-              </span>
+              <span>View All Products ({PRODUCTS.length})</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -98,7 +90,7 @@ export default function FeaturedProducts() {
             return (
               <div
                 key={product.id}
-                className="product-card group relative bg-white rounded-3xl border border-[#ece4d6] p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300"
+                className="product-card group relative bg-[#F0F1EC] rounded-3xl border border-[#e0e1d8] p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 {/* Top Wishlist Heart Icon */}
                 <div className="flex justify-end mb-1">
@@ -115,17 +107,17 @@ export default function FeaturedProducts() {
                   </button>
                 </div>
 
-                {/* Product Packet Image (seamless transparent blend + zoomed presentation) */}
+                {/* Product Packet Image (matched #F0F1EC blend + tight pixel crop to remove edge lines) */}
                 <div
                   onClick={() => setQuickViewProduct(product)}
-                  className="relative w-full h-[210px] sm:h-[225px] bg-white rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center mb-2"
+                  className="relative w-full h-[215px] sm:h-[230px] bg-[#F0F1EC] rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center mb-2"
                 >
                   <img
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
-                    className="w-full h-full object-contain mix-blend-multiply transform scale-[1.15] group-hover:scale-[1.22] transition-transform duration-300 select-none"
-                    style={{ clipPath: "inset(1% 3% 1% 2%)" }}
+                    className="h-full w-auto max-w-full block mix-blend-multiply transform scale-[1.16] group-hover:scale-[1.22] transition-transform duration-300 select-none"
+                    style={{ clipPath: "inset(2% 6% 2% 4%)" }}
                   />
 
                   {/* Quick View Overlay Pill */}
