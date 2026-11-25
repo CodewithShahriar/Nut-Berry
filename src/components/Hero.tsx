@@ -41,7 +41,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-24 md:pb-28 min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-center">
+      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 md:pt-16 pb-44 sm:pb-48 md:pb-52 min-h-[540px] sm:min-h-[580px] lg:min-h-[600px] flex flex-col justify-start">
         <div className="max-w-xl lg:max-w-2xl space-y-3 sm:space-y-3.5">
           {/* Top Tag: PREMIUM & NATURAL — */}
           <div className="flex items-center gap-2">
@@ -91,7 +91,7 @@ export default function Hero() {
         </div>
 
         {/* Floating Badge (FRESH HARVEST) positioned comfortably above the floating Categories card */}
-        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-32 sm:right-6 lg:bottom-36 lg:right-10 z-20">
+        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-44 sm:right-6 lg:bottom-48 lg:right-10 z-20">
           <div className="relative bg-[#0e3321]/90 backdrop-blur-md text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl border border-[#2b6a48]/70 shadow-2xl flex items-center gap-3 max-w-[260px] sm:max-w-[280px]">
             {/* Leaf Accent Icon */}
             <div className="w-9 h-9 rounded-full bg-[#1b4e33] flex items-center justify-center shrink-0 border border-[#40916c]/40">
