@@ -11,6 +11,10 @@ export default function Navbar() {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [shopDropdown, setShopDropdown] = useState(false);
 
+  const isContactActive =
+    currentPage === "contact" ||
+    (typeof window !== "undefined" && window.location.pathname.toLowerCase().includes("contact"));
+
   const categories = [
     { label: "All Products", val: null },
     { label: "Almonds", val: "almonds" },
@@ -46,13 +50,16 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => navigateTo("home")}
-              className={`relative py-1 cursor-pointer transition-colors ${
-                currentPage === "home"
-                  ? "text-[#173e2d] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#256047] after:rounded-full"
+              className={`relative py-1.5 cursor-pointer transition-colors ${
+                !isContactActive
+                  ? "text-[#173e2d] font-semibold"
                   : "hover:text-[#173e2d]"
               }`}
             >
-              Home
+              <span>Home</span>
+              {!isContactActive && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#256047] rounded-full" />
+              )}
             </button>
 
             {/* Shop with Dropdown */}
@@ -105,13 +112,16 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => navigateTo("contact")}
-              className={`relative py-1 cursor-pointer transition-colors ${
-                currentPage === "contact"
-                  ? "text-[#173e2d] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#256047] after:rounded-full"
+              className={`relative py-1.5 cursor-pointer transition-colors ${
+                isContactActive
+                  ? "text-[#173e2d] font-semibold"
                   : "hover:text-[#173e2d]"
               }`}
             >
-              Contact
+              <span>Contact</span>
+              {isContactActive && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#256047] rounded-full" />
+              )}
             </button>
           </nav>
 
