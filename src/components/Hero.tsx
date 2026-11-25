@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { ArrowRight, Play, Leaf } from "lucide-react";
 import { useStore } from "@/context/StoreContext";
 
@@ -16,15 +15,15 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-[#0c2217] text-white">
       {/* Background Image: Panoramic Hero Bowl with Rustic Table & Foliage */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-bowl.jpg"
-          alt="Premium Dry Fruits Assortment"
-          fill
-          priority
-          quality={100}
-          className="object-cover object-right lg:object-center select-none"
-        />
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/images/hero-bowl.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "right center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* Seamless dark green gradient on the left for crisp text contrast */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0c2217] via-[#0c2217]/95 via-35% to-transparent to-70% hidden sm:block pointer-events-none" />
         {/* Mobile full overlay so text is readable */}
@@ -91,8 +90,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Floating Badge (FRESH HARVEST) positioned bottom right over rustic table */}
-        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-8 sm:right-6 lg:bottom-12 lg:right-10 z-20">
+        {/* Floating Badge (FRESH HARVEST) positioned comfortably above the floating Categories card */}
+        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-20 sm:right-6 lg:bottom-24 lg:right-10 z-20">
           <div className="relative bg-[#0e3321]/90 backdrop-blur-md text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl border border-[#2b6a48]/70 shadow-2xl flex items-center gap-3 max-w-[260px] sm:max-w-[280px]">
             {/* Leaf Accent Icon */}
             <div className="w-9 h-9 rounded-full bg-[#1b4e33] flex items-center justify-center shrink-0 border border-[#40916c]/40">
