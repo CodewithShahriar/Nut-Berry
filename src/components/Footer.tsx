@@ -5,7 +5,7 @@ import { Leaf, ArrowUp, ArrowRight } from "lucide-react";
 import { useStore } from "@/context/StoreContext";
 
 export default function Footer() {
-  const { setIsContactOpen, showToast } = useStore();
+  const { navigateTo, showToast } = useStore();
   const [footerEmail, setFooterEmail] = useState("");
 
   const scrollToTop = () => {
@@ -128,17 +128,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors">
+                <button onClick={() => navigateTo("contact")} className="hover:text-white transition-colors">
+                  Contact Us
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigateTo("contact")} className="hover:text-white transition-colors">
                   FAQs
                 </button>
               </li>
               <li>
-                <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors">
+                <button onClick={() => navigateTo("contact")} className="hover:text-white transition-colors">
                   Shipping &amp; Delivery
                 </button>
               </li>
               <li>
-                <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors">
+                <button onClick={() => navigateTo("contact")} className="hover:text-white transition-colors">
                   Returns &amp; Refunds
                 </button>
               </li>

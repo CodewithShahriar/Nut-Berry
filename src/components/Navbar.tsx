@@ -6,7 +6,7 @@ import { Search, ShoppingBag, ChevronDown, Menu, X, Leaf } from "lucide-react";
 import { useStore } from "@/context/StoreContext";
 
 export default function Navbar() {
-  const { cartCount, setIsCartOpen, setIsContactOpen, searchQuery, setSearchQuery, setSelectedCategory } = useStore();
+  const { cartCount, setIsCartOpen, currentPage, navigateTo, searchQuery, setSearchQuery, setSelectedCategory } = useStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [shopDropdown, setShopDropdown] = useState(false);
@@ -25,7 +25,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <button
+            onClick={() => navigateTo("home")}
+            className="flex items-center gap-2.5 group text-left"
+          >
             <div className="w-9 h-9 rounded-full bg-[#173e2d] flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">
               <Leaf className="w-5 h-5 text-[#86efac]" />
             </div>
@@ -34,16 +37,20 @@ export default function Navbar() {
                 Nut &amp; Berry
               </span>
             </div>
-          </Link>
+          </button>
 
           {/* Center Navigation */}
           <nav className="hidden md:flex items-center space-x-8 text-[15px] font-medium text-[#2f3e35]">
-            <Link
-              href="/"
-              className="relative py-1 text-[#173e2d] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#256047] after:rounded-full"
+            <button
+              onClick={() => navigateTo("home")}
+              className={`relative py-1 transition-colors ${
+                currentPage === "home"
+                  ? "text-[#173e2d] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#256047] after:rounded-full"
+                  : "hover:text-[#173e2d]"
+              }`}
             >
               Home
-            </Link>
+            </button>
 
             {/* Shop with Dropdown */}
             <div
@@ -52,10 +59,7 @@ export default function Navbar() {
               onMouseLeave={() => setShopDropdown(false)}
             >
               <button
-                onClick={() => {
-                  const section = document.getElementById("featured-products");
-                  section?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => navigateTo("home", "featured-products")}
                 className="flex items-center gap-1 hover:text-[#173e2d] transition-colors py-2"
               >
                 <span>Shop</span>
@@ -70,8 +74,7 @@ export default function Navbar() {
                       onClick={() => {
                         setSelectedCategory(cat.val);
                         setShopDropdown(false);
-                        const section = document.getElementById("featured-products");
-                        section?.scrollIntoView({ behavior: "smooth" });
+                        navigateTo("home", "featured-products");
                       }}
                       className="w-full text-left px-4 py-2 text-sm text-[#2b3a32] hover:bg-[#FAF7F2] hover:text-[#173e2d] transition-colors"
                     >
@@ -82,23 +85,27 @@ export default function Navbar() {
               )}
             </div>
 
-            <a
-              href="#about-section"
+            <button
+              onClick={() => navigateTo("home", "about-section")}
               className="hover:text-[#173e2d] transition-colors"
             >
               About
-            </a>
+            </button>
 
-            <a
-              href="#quality-section"
+            <button
+              onClick={() => navigateTo("home", "quality-section")}
               className="hover:text-[#173e2d] transition-colors"
             >
               Quality
-            </a>
+            </button>
 
             <button
-              onClick={() => setIsContactOpen(true)}
-              className="hover:text-[#173e2d] transition-colors"
+              onClick={() => navigateTo("contact")}
+              className={`relative py-1 transition-colors ${
+                currentPage === "contact"
+                  ? "text-[#173e2d] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#256047] after:rounded-full"
+                  : "hover:text-[#173e2d]"
+              }`}
             >
               Contact
             </button>
@@ -153,7 +160,7 @@ export default function Navbar() {
 
             {/* Contact Us Button */}
             <button
-              onClick={() => setIsContactOpen(true)}
+              onClick={() => navigateTo("contact")}
               className="hidden sm:inline-flex items-center justify-center bg-[#173e2d] hover:bg-[#112d20] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow"
             >
               Contact Us
@@ -206,7 +213,7 @@ export default function Navbar() {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                setIsContactOpen(true);
+                navigateTo("contact");
               }}
               className="block w-full text-left px-3 py-2 text-base font-medium text-[#173e2d] hover:bg-[#f5f1e6] rounded-lg"
             >

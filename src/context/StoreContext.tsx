@@ -13,6 +13,7 @@ interface StoreContextType {
   isCheckoutOpen: boolean;
   isContactOpen: boolean;
   isVideoOpen: boolean;
+  currentPage: "home" | "contact";
   quickViewProduct: Product | null;
   toastMessage: string | null;
   setSearchQuery: (query: string) => void;
@@ -21,6 +22,7 @@ interface StoreContextType {
   setIsCheckoutOpen: (open: boolean) => void;
   setIsContactOpen: (open: boolean) => void;
   setIsVideoOpen: (open: boolean) => void;
+  navigateTo: (page: "home" | "contact", sectionId?: string) => void;
   setQuickViewProduct: (product: Product | null) => void;
   addToCart: (product: Product, quantity?: number, weight?: string) => void;
   removeFromCart: (productId: string, weight?: string) => void;
@@ -45,6 +47,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<"home" | "contact">("home");
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -73,6 +76,21 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem("nut_berry_wishlist", JSON.stringify(wishlist));
     } catch {}
   }, [wishlist]);
+
+  const navigateTo = (page: "home" | "contact", sectionId?: string) => {
+    setCurrentPage(page);
+    if (page === "contact") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    if (sectionId) {
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      }, 60);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -165,6 +183,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         isCheckoutOpen,
         isContactOpen,
         isVideoOpen,
+        currentPage,
         quickViewProduct,
         toastMessage,
         setSearchQuery,
@@ -173,6 +192,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         setIsCheckoutOpen,
         setIsContactOpen,
         setIsVideoOpen,
+        navigateTo,
         setQuickViewProduct,
         addToCart,
         removeFromCart,
