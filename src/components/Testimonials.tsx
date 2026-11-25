@@ -3,11 +3,14 @@
 import React from "react";
 import { Star, Quote } from "lucide-react";
 import { TESTIMONIALS } from "@/data/products";
+import { LeafCluster } from "@/components/BotanicalBackdrop";
 
 export default function Testimonials() {
   return (
     <section className="relative z-10 py-14 md:py-20 bg-transparent border-t border-[#e5decb]/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Decorative Leaf peeking on Left edge of Testimonials */}
+        <LeafCluster className="absolute -left-8 sm:-left-12 lg:-left-14 top-12 sm:top-16 w-24 sm:w-28 lg:w-36 z-30 rotate-12" />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Heading */}
           <div className="lg:col-span-4">

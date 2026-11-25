@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowRight, Leaf, Users, ShieldCheck } from "lucide-react";
+import { LeafCluster } from "@/components/BotanicalBackdrop";
 
 export default function AboutSection() {
   const highlights = [
@@ -25,7 +26,12 @@ export default function AboutSection() {
 
   return (
     <section id="about-section" className="relative z-10 py-14 md:py-24 bg-transparent">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Decorative Leaf peeking on Right edge of AboutSection */}
+        <LeafCluster
+          flip
+          className="absolute -right-6 sm:-right-10 lg:-right-14 -bottom-12 sm:-bottom-16 w-28 sm:w-36 lg:w-44 z-30 -rotate-12"
+        />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Bowl Photo on Burlap */}
           <div className="lg:col-span-6">

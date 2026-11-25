@@ -7,10 +7,12 @@ import AboutSection from "@/components/AboutSection";
 import Testimonials from "@/components/Testimonials";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
+import { BotanicalBackground } from "@/components/BotanicalBackdrop";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col bg-[#FAF7F2]">
+    <main className="min-h-screen flex flex-col bg-[#ECE8D9] relative overflow-x-hidden">
+      <BotanicalBackground />
       {/* 1. Header Navigation */}
       <Navbar />
 

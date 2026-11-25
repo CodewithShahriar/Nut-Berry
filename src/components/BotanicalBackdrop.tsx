@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useId } from "react";
 
-function LeafCluster({
+export function LeafCluster({
   className = "",
   flip = false,
 }: {
@@ -101,53 +103,29 @@ export function BotanicalBackground() {
       className="pointer-events-none select-none absolute inset-0 overflow-hidden z-0"
       aria-hidden="true"
     >
-      {/* Rich Warm Sage & Organic Almond-Cream Backdrop */}
+      {/* Rich Warm Sage & Organic Almond-Cream Backdrop (visible behind all cards) */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundColor: "#F2EFE4",
+          backgroundColor: "#ECE8D9",
           backgroundImage:
-            "radial-gradient(ellipse 65% 26% at 5% 22%, rgba(139, 195, 112, 0.34), transparent 70%), " +
-            "radial-gradient(ellipse 60% 24% at 95% 40%, rgba(212, 163, 115, 0.28), transparent 70%), " +
-            "radial-gradient(ellipse 65% 26% at 6% 62%, rgba(128, 186, 102, 0.32), transparent 70%), " +
-            "radial-gradient(ellipse 60% 24% at 94% 80%, rgba(139, 195, 112, 0.30), transparent 70%), " +
-            "radial-gradient(ellipse 65% 22% at 15% 95%, rgba(212, 163, 115, 0.24), transparent 70%)",
+            "radial-gradient(ellipse 75% 30% at 18% 20%, rgba(145, 200, 118, 0.36), transparent 70%), " +
+            "radial-gradient(ellipse 70% 28% at 82% 38%, rgba(212, 163, 115, 0.32), transparent 70%), " +
+            "radial-gradient(ellipse 75% 30% at 22% 62%, rgba(132, 190, 106, 0.34), transparent 70%), " +
+            "radial-gradient(ellipse 70% 28% at 80% 80%, rgba(145, 200, 118, 0.32), transparent 70%), " +
+            "radial-gradient(ellipse 75% 24% at 30% 95%, rgba(212, 163, 115, 0.28), transparent 70%)",
         }}
       />
 
       {/* Subtle Organic Botanical Dot Texture */}
       <div
-        className="absolute inset-0 opacity-40"
+        className="absolute inset-0 opacity-45"
         style={{
           backgroundImage:
-            "radial-gradient(rgba(37, 96, 71, 0.16) 1.1px, transparent 1.1px)",
-          backgroundSize: "26px 26px",
+            "radial-gradient(rgba(37, 96, 71, 0.18) 1.2px, transparent 1.2px)",
+          backgroundSize: "24px 24px",
         }}
       />
-    </div>
-  );
-}
-
-export function BotanicalLeavesOverlay() {
-  return (
-    <div
-      className="pointer-events-none select-none absolute inset-0 overflow-hidden z-30"
-      aria-hidden="true"
-    >
-      {/* 1. Top-Left Leaf Cluster peeking over Categories edge */}
-      <LeafCluster className="absolute -left-2 sm:left-0 top-[630px] sm:top-[660px] lg:top-[680px] w-24 sm:w-32 lg:w-36 rotate-6" />
-
-      {/* 2. Mid-Right Leaf Cluster between About & Testimonials */}
-      <LeafCluster
-        flip
-        className="absolute -right-2 sm:right-0 top-[54%] w-28 sm:w-36 lg:w-44 -rotate-12"
-      />
-
-      {/* 3. Lower-Left Leaf Cluster beside Testimonials */}
-      <LeafCluster className="absolute -left-2 sm:left-0 top-[68%] w-24 sm:w-32 lg:w-36 rotate-12" />
-
-      {/* 4. Bottom-Left Leaf Cluster beside Newsletter */}
-      <LeafCluster className="absolute -left-2 sm:left-0 bottom-8 sm:bottom-10 w-24 sm:w-32 lg:w-36 -rotate-6" />
     </div>
   );
 }

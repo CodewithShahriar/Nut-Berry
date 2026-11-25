@@ -4,6 +4,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { CATEGORIES } from "@/data/products";
 import { useStore } from "@/context/StoreContext";
+import { LeafCluster } from "@/components/BotanicalBackdrop";
 
 export default function Categories() {
   const { selectedCategory, setSelectedCategory } = useStore();
@@ -20,7 +21,9 @@ export default function Categories() {
 
   return (
     <section className="relative z-20 w-full -mt-8 sm:-mt-10 md:-mt-12 lg:-mt-14 mb-6 sm:mb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Decorative Leaf peeking on Left edge of Categories */}
+        <LeafCluster className="absolute -left-10 sm:-left-14 lg:-left-16 top-1/2 -translate-y-1/2 w-24 sm:w-28 lg:w-32 z-30 rotate-6" />
         {/* Floating Master Container aligned flush with all other sections (max-w-7xl) */}
         <div className="w-full bg-[#FAF7F2] rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 border border-[#e5decb] shadow-[0_14px_45px_rgba(0,0,0,0.08)]">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-5 lg:gap-6">

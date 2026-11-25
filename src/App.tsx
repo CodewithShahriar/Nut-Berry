@@ -9,7 +9,7 @@ import AboutSection from "./components/AboutSection";
 import Testimonials from "./components/Testimonials";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
-import { BotanicalBackground, BotanicalLeavesOverlay } from "./components/BotanicalBackdrop";
+import { BotanicalBackground } from "./components/BotanicalBackdrop";
 import CartDrawer from "./components/CartDrawer";
 import CheckoutModal from "./components/CheckoutModal";
 import ProductDetailModal from "./components/ProductDetailModal";
@@ -20,11 +20,10 @@ import Toast from "./components/Toast";
 export default function App() {
   return (
     <StoreProvider>
-      <div className="min-h-screen flex flex-col bg-[#F2EFE4] text-[#1c2e24] overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-[#ECE8D9] text-[#1c2e24] overflow-x-hidden">
         <Navbar />
         <main className="flex-1 relative">
           <BotanicalBackground />
-          <BotanicalLeavesOverlay />
           <Hero />
           <Categories />
           <FeaturedProducts />
