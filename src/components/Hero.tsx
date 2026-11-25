@@ -20,14 +20,12 @@ export default function Hero() {
         style={{
           backgroundImage: "url('/images/hero-bowl.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "right center",
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Seamless dark green gradient on the left for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0c2217] via-[#0c2217]/95 via-35% to-transparent to-70% hidden sm:block pointer-events-none" />
-        {/* Mobile full overlay so text is readable */}
-        <div className="absolute inset-0 bg-[#0c2217]/85 sm:hidden pointer-events-none" />
+        {/* Light readability tint only on small mobile screens */}
+        <div className="absolute inset-0 bg-black/35 sm:hidden pointer-events-none" />
       </div>
 
       {/* Floating Decorative Leaf Accent */}
@@ -41,7 +39,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-24 md:pb-28 min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-24 sm:pb-28 md:pb-32 lg:pb-36 min-h-[540px] sm:min-h-[580px] md:min-h-[620px] lg:min-h-[660px] flex flex-col justify-center">
         <div className="max-w-xl lg:max-w-2xl space-y-3 sm:space-y-3.5">
           {/* Top Tag: PREMIUM & NATURAL — */}
           <div className="flex items-center gap-2">
