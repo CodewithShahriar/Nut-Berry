@@ -1,19 +1,48 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useState, useEffect } from "react";
 import { Search, ShoppingBag, ChevronDown, Menu, X, Leaf } from "lucide-react";
 import { useStore } from "@/context/StoreContext";
+
+type NavTab = "home" | "shop" | "about" | "quality" | "contact";
 
 export default function Navbar() {
   const { cartCount, setIsCartOpen, currentPage, navigateTo, searchQuery, setSearchQuery, setSelectedCategory } = useStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [shopDropdown, setShopDropdown] = useState(false);
+  const [activeHomeTab, setActiveHomeTab] = useState<Exclude<NavTab, "contact">>("home");
 
   const isContactActive =
     currentPage === "contact" ||
     (typeof window !== "undefined" && window.location.pathname.toLowerCase().includes("contact"));
+
+  const activeTab: NavTab = isContactActive ? "contact" : activeHomeTab;
+
+  // Automatically track which section is in view on Home
+  useEffect(() => {
+    if (isContactActive) return;
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 180;
+      const aboutEl = document.getElementById("about-section");
+      const qualityEl = document.getElementById("quality-section");
+      const shopEl = document.getElementById("featured-products");
+
+      if (aboutEl && scrollPos >= aboutEl.offsetTop) {
+        setActiveHomeTab("about");
+      } else if (qualityEl && scrollPos >= qualityEl.offsetTop) {
+        setActiveHomeTab("quality");
+      } else if (shopEl && scrollPos >= shopEl.offsetTop) {
+        setActiveHomeTab("shop");
+      } else {
+        setActiveHomeTab("home");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isContactActive]);
 
   const categories = [
     { label: "All Products", val: null },
@@ -32,7 +61,10 @@ export default function Navbar() {
           {/* Brand Logo */}
           <button
             type="button"
-            onClick={() => navigateTo("home")}
+            onClick={() => {
+              setActiveHomeTab("home");
+              navigateTo("home");
+            }}
             className="flex items-center gap-2.5 group text-left cursor-pointer"
           >
             <div className="w-9 h-9 rounded-full bg-[#173e2d] flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">
@@ -49,15 +81,18 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center space-x-8 text-[15px] font-medium text-[#2f3e35]">
             <button
               type="button"
-              onClick={() => navigateTo("home")}
+              onClick={() => {
+                setActiveHomeTab("home");
+                navigateTo("home");
+              }}
               className={`relative py-1.5 cursor-pointer transition-colors ${
-                !isContactActive
+                activeTab === "home"
                   ? "text-[#173e2d] font-semibold"
                   : "hover:text-[#173e2d]"
               }`}
             >
               <span>Home</span>
-              {!isContactActive && (
+              {activeTab === "home" && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#256047] rounded-full" />
               )}
             </button>
@@ -69,11 +104,22 @@ export default function Navbar() {
               onMouseLeave={() => setShopDropdown(false)}
             >
               <button
-                onClick={() => navigateTo("home", "featured-products")}
-                className="flex items-center gap-1 hover:text-[#173e2d] transition-colors py-2"
+                type="button"
+                onClick={() => {
+                  setActiveHomeTab("shop");
+                  navigateTo("home", "featured-products");
+                }}
+                className={`relative flex items-center gap-1 py-1.5 cursor-pointer transition-colors ${
+                  activeTab === "shop"
+                    ? "text-[#173e2d] font-semibold"
+                    : "hover:text-[#173e2d]"
+                }`}
               >
                 <span>Shop</span>
                 <ChevronDown className="w-4 h-4 text-[#607368]" />
+                {activeTab === "shop" && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#256047] rounded-full" />
+                )}
               </button>
 
               {shopDropdown && (
@@ -84,6 +130,7 @@ export default function Navbar() {
                       onClick={() => {
                         setSelectedCategory(cat.val);
                         setShopDropdown(false);
+                        setActiveHomeTab("shop");
                         navigateTo("home", "featured-products");
                       }}
                       className="w-full text-left px-4 py-2 text-sm text-[#2b3a32] hover:bg-[#FAF7F2] hover:text-[#173e2d] transition-colors"
@@ -96,30 +143,52 @@ export default function Navbar() {
             </div>
 
             <button
-              onClick={() => navigateTo("home", "about-section")}
-              className="hover:text-[#173e2d] transition-colors"
+              type="button"
+              onClick={() => {
+                setActiveHomeTab("about");
+                navigateTo("home", "about-section");
+              }}
+              className={`relative py-1.5 cursor-pointer transition-colors ${
+                activeTab === "about"
+                  ? "text-[#173e2d] font-semibold"
+                  : "hover:text-[#173e2d]"
+              }`}
             >
-              About
+              <span>About</span>
+              {activeTab === "about" && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#256047] rounded-full" />
+              )}
             </button>
 
             <button
-              onClick={() => navigateTo("home", "quality-section")}
-              className="hover:text-[#173e2d] transition-colors"
+              type="button"
+              onClick={() => {
+                setActiveHomeTab("quality");
+                navigateTo("home", "quality-section");
+              }}
+              className={`relative py-1.5 cursor-pointer transition-colors ${
+                activeTab === "quality"
+                  ? "text-[#173e2d] font-semibold"
+                  : "hover:text-[#173e2d]"
+              }`}
             >
-              Quality
+              <span>Quality</span>
+              {activeTab === "quality" && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#256047] rounded-full" />
+              )}
             </button>
 
             <button
               type="button"
               onClick={() => navigateTo("contact")}
               className={`relative py-1.5 cursor-pointer transition-colors ${
-                isContactActive
+                activeTab === "contact"
                   ? "text-[#173e2d] font-semibold"
                   : "hover:text-[#173e2d]"
               }`}
             >
               <span>Contact</span>
-              {isContactActive && (
+              {activeTab === "contact" && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#256047] rounded-full" />
               )}
             </button>
@@ -198,13 +267,17 @@ export default function Navbar() {
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-[#ece6db] space-y-3">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-semibold text-[#173e2d] bg-[#f0ebd9] rounded-lg"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setActiveHomeTab("home");
+                navigateTo("home");
+              }}
+              className="block w-full text-left px-3 py-2 text-base font-semibold text-[#173e2d] bg-[#f0ebd9] rounded-lg"
             >
               Home
-            </Link>
+            </button>
             <button
               type="button"
               onClick={() => {
