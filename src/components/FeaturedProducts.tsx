@@ -34,7 +34,7 @@ export default function FeaturedProducts() {
   const displayProducts = !selectedCategory && !searchQuery ? filtered.slice(0, 4) : filtered;
 
   return (
-    <section id="featured-products" className="pt-2 sm:pt-4 md:pt-6 pb-12 md:pb-16 bg-[#FAF7F2]">
+    <section id="featured-products" className="relative z-10 pt-2 sm:pt-4 md:pt-6 pb-12 md:pb-16 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header matching Reference */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">

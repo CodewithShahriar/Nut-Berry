@@ -40,7 +40,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-6 sm:py-8 md:py-10 bg-[#FAF7F2]">
+    <section className="relative z-10 py-6 sm:py-8 md:py-10 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Seamless Banner with user's uploaded background asset (no double border/shadow) */}
         <div

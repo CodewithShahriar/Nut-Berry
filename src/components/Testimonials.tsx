@@ -6,7 +6,7 @@ import { TESTIMONIALS } from "@/data/products";
 
 export default function Testimonials() {
   return (
-    <section className="py-14 md:py-20 bg-[#FAF7F2] border-t border-[#ede7dc]/60">
+    <section className="relative z-10 py-14 md:py-20 bg-transparent border-t border-[#e5decb]/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Heading */}

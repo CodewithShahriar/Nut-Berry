@@ -9,6 +9,7 @@ import AboutSection from "./components/AboutSection";
 import Testimonials from "./components/Testimonials";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
+import BotanicalBackdrop from "./components/BotanicalBackdrop";
 import CartDrawer from "./components/CartDrawer";
 import CheckoutModal from "./components/CheckoutModal";
 import ProductDetailModal from "./components/ProductDetailModal";
@@ -19,9 +20,10 @@ import Toast from "./components/Toast";
 export default function App() {
   return (
     <StoreProvider>
-      <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#1c2e24]">
+      <div className="min-h-screen flex flex-col bg-[#F7F3EA] text-[#1c2e24] overflow-x-hidden">
         <Navbar />
-        <main className="flex-1">
+        <main className="flex-1 relative">
+          <BotanicalBackdrop />
           <Hero />
           <Categories />
           <FeaturedProducts />

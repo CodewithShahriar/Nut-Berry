@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="py-8 sm:py-10 md:py-12 bg-[#FAF7F2]">
+    <section className="relative z-10 py-8 sm:py-10 md:py-12 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="relative rounded-3xl overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.06)] border border-[#e3ecd9] px-6 sm:px-10 lg:px-12 py-8 sm:py-10 lg:py-11 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-10"

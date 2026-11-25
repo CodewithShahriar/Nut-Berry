@@ -24,7 +24,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about-section" className="py-14 md:py-24 bg-[#FAF7F2]">
+    <section id="about-section" className="relative z-10 py-14 md:py-24 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Bowl Photo on Burlap */}
