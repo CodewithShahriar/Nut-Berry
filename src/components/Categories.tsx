@@ -18,7 +18,7 @@ export default function Categories() {
   };
 
   return (
-    <section className="relative z-20 -mt-8 sm:-mt-12 md:-mt-14 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-6 md:mb-8">
+    <section className="relative z-20 -mt-20 sm:-mt-24 md:-mt-28 lg:-mt-32 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-6 md:mb-8">
       {/* Floating Master Container matching exact Reference */}
       <div className="w-full bg-[#FAF7F2] rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 border border-[#e5decb] shadow-[0_12px_36px_rgba(0,0,0,0.08)]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-5 lg:gap-6">
