@@ -294,22 +294,6 @@ export const PRODUCTS: Product[] = [
     benefits: ["Supports Vision & Immunity", "Rich in Essential Amino Acids", "100% Raw Superfruit"],
     inStock: true,
   },
-  {
-    id: "prod-mixed-royal",
-    name: "Royal Mixed Dry Fruits Bowl (500g)",
-    category: "dried-fruits",
-    weight: "500g",
-    price: 999,
-    originalPrice: 1199,
-    discountPercent: 17,
-    rating: 5.0,
-    reviewCount: 210,
-    image: "/images/hero-bowl.jpg",
-    description:
-      "The ultimate signature assortment of supreme almonds, jumbo cashews, golden raisins, roasted pistachios and walnut kernels.",
-    benefits: ["Comprehensive Daily Nutrition", "Family Sharing Size", "Premium Gift Packaging"],
-    inStock: true,
-  },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

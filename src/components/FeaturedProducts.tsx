@@ -115,21 +115,21 @@ export default function FeaturedProducts() {
                   </button>
                 </div>
 
-                {/* Product Packet Image */}
+                {/* Product Packet Image (seamless transparent blend + zoomed presentation) */}
                 <div
                   onClick={() => setQuickViewProduct(product)}
-                  className="relative w-full aspect-[4/3] bg-[#FAF7F2] rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center p-2 mb-2"
+                  className="relative w-full h-[210px] sm:h-[225px] bg-white rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center mb-2"
                 >
-                  <Image
+                  <img
                     src={product.image}
                     alt={product.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-contain p-1 transform group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    className="w-full h-full object-contain mix-blend-multiply transform scale-[1.15] group-hover:scale-[1.22] transition-transform duration-300 select-none"
+                    style={{ clipPath: "inset(1% 3% 1% 2%)" }}
                   />
 
                   {/* Quick View Overlay Pill */}
-                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-[#133527] text-xs font-bold px-3 py-1.5 rounded-full shadow">
                       <Eye className="w-3.5 h-3.5" /> Quick View
                     </span>
