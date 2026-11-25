@@ -27,10 +27,10 @@ export default function AboutSection() {
   return (
     <section id="about-section" className="relative z-10 py-14 md:py-24 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Decorative Leaf peeking on Right edge of AboutSection */}
+        {/* Decorative Leaf peeking in open top-right space of AboutSection (clear of all text) */}
         <LeafCluster
           flip
-          className="absolute -right-6 sm:-right-10 lg:-right-14 -bottom-12 sm:-bottom-16 w-28 sm:w-36 lg:w-44 z-30 -rotate-12"
+          className="absolute -right-8 sm:-right-14 lg:-right-20 -top-4 sm:-top-6 w-24 sm:w-28 lg:w-36 z-10 -rotate-12"
         />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Bowl Photo on Burlap */}
@@ -40,7 +40,7 @@ export default function AboutSection() {
                 src="/images/about-bowl.jpg"
                 alt="Nut & Berry Fresh Natural Harvest Bowl"
                 fill
-                className="object-cover transform hover:scale-105 transition-transform duration-700"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
