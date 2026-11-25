@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { StoreProvider } from "@/context/StoreContext";
-import CartDrawer from "@/components/CartDrawer";
-import CheckoutModal from "@/components/CheckoutModal";
-import ProductDetailModal from "@/components/ProductDetailModal";
-import ContactModal from "@/components/ContactModal";
-import VideoModal from "@/components/VideoModal";
-import Toast from "@/components/Toast";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "Nut & Berry | Nature's Power Snack - Premium Dry Fruits",
@@ -32,15 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased bg-[#FAF7F2] text-[#1c2e24]">
-        <StoreProvider>
-          {children}
-          <CartDrawer />
-          <CheckoutModal />
-          <ProductDetailModal />
-          <ContactModal />
-          <VideoModal />
-          <Toast />
-        </StoreProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
