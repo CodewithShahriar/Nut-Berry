@@ -94,16 +94,39 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   const navigateTo = (page: "home" | "contact", sectionId?: string) => {
     if (typeof window !== "undefined") {
-      // If running inside Next.js multi-page route (/contact), do a clean route navigation back to /
-      if (page === "home" && !document.getElementById("hero-section") && window.location.pathname.toLowerCase().startsWith("/contact")) {
-        window.location.href = sectionId ? `/#${sectionId}` : "/";
+      const isViteSpa = Boolean(document.getElementById("root"));
+
+      if (!isViteSpa) {
+        // Running inside Next.js App Router: navigate between / and /contact routes directly
+        if (page === "contact") {
+          if (!window.location.pathname.toLowerCase().startsWith("/contact")) {
+            window.location.href = "/contact";
+          } else {
+            window.scrollTo(0, 0);
+          }
+          return;
+        }
+
+        if (window.location.pathname.toLowerCase().startsWith("/contact")) {
+          window.location.href = sectionId ? `/#${sectionId}` : "/";
+          return;
+        }
+
+        if (sectionId) {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          window.scrollTo(0, 0);
+        }
         return;
       }
+
+      // Running inside Vite SPA: instant client-side page switching synced with URL
       const targetUrl = page === "contact" ? "/contact" : "/";
       if (window.location.pathname !== targetUrl) {
         window.history.pushState({}, "", targetUrl);
       }
     }
+
     setCurrentPage(page);
     if (page === "contact") {
       window.scrollTo(0, 0);
