@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import AboutSection from "@/components/AboutSection";
 import Testimonials from "@/components/Testimonials";
 import Newsletter from "@/components/Newsletter";
@@ -22,7 +23,10 @@ export default function Home() {
       {/* 4. Best Sellers / Featured Products */}
       <FeaturedProducts />
 
-      {/* 5. About Nut & Berry / Pure Goodness From Nature */}
+      {/* 5. Why Choose Nut & Berry */}
+      <WhyChooseUs />
+
+      {/* 6. About Nut & Berry / Pure Goodness From Nature */}
       <AboutSection />
 
       {/* 6. Testimonials / What Our Customers Say */}
