@@ -23,16 +23,17 @@ export default function Categories() {
       {/* Floating Master Container matching exact Reference */}
       <div className="w-full bg-[#FAF7F2] rounded-3xl sm:rounded-[32px] p-5 sm:p-6 lg:p-7 border border-[#e8dfcf] shadow-xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 lg:gap-8">
-          {/* Left Title: EXPLORE / OUR CATEGORIES matching exact Bebas Neue / condensed font */}
-          <div className="shrink-0 md:min-w-[170px] lg:min-w-[190px] flex flex-col justify-center">
-            <span className="text-[12px] sm:text-[13px] font-extrabold tracking-[0.18em] text-[#1e3d2a] uppercase block mb-1">
-              EXPLORE
-            </span>
-            <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-condensed tracking-tight text-[#143d2c] uppercase leading-[0.92]">
-              OUR <br />
-              CATEGORIES
-            </h2>
-            <span className="w-11 h-[3.5px] bg-[#256047] rounded-full mt-2 inline-block" />
+          {/* Left Title: EXPLORE OUR CATEGORIES */}
+          <div className="shrink-0 flex items-center justify-center md:justify-start">
+            <div className="relative w-[150px] sm:w-[160px] h-[116px] sm:h-[124px]">
+              <Image
+                src="/images/categories-title.png"
+                alt="Explore Our Categories"
+                fill
+                priority
+                className="object-contain object-left select-none"
+              />
+            </div>
           </div>
 
           {/* Right 5 Category Cards */}
@@ -50,7 +51,6 @@ export default function Categories() {
                       : "border border-black/10 hover:border-[#256047]/40"
                   }`}
                 >
-                  {/* Category Card Image directly from reference */}
                   <Image
                     src={cat.image}
                     alt={cat.name}
