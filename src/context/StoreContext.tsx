@@ -100,15 +100,15 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       }
     }
     if (page === "contact") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo(0, 0);
       return;
     }
     if (sectionId) {
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-      }, 60);
+      }, 80);
     } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo(0, 0);
     }
   };
 

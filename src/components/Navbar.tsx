@@ -26,8 +26,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
           <button
+            type="button"
             onClick={() => navigateTo("home")}
-            className="flex items-center gap-2.5 group text-left"
+            className="flex items-center gap-2.5 group text-left cursor-pointer"
           >
             <div className="w-9 h-9 rounded-full bg-[#173e2d] flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">
               <Leaf className="w-5 h-5 text-[#86efac]" />
@@ -42,8 +43,9 @@ export default function Navbar() {
           {/* Center Navigation */}
           <nav className="hidden md:flex items-center space-x-8 text-[15px] font-medium text-[#2f3e35]">
             <button
+              type="button"
               onClick={() => navigateTo("home")}
-              className={`relative py-1 transition-colors ${
+              className={`relative py-1 cursor-pointer transition-colors ${
                 currentPage === "home"
                   ? "text-[#173e2d] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#256047] after:rounded-full"
                   : "hover:text-[#173e2d]"
@@ -100,8 +102,9 @@ export default function Navbar() {
             </button>
 
             <button
+              type="button"
               onClick={() => navigateTo("contact")}
-              className={`relative py-1 transition-colors ${
+              className={`relative py-1 cursor-pointer transition-colors ${
                 currentPage === "contact"
                   ? "text-[#173e2d] font-semibold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#256047] after:rounded-full"
                   : "hover:text-[#173e2d]"
