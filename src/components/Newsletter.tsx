@@ -42,13 +42,13 @@ export default function Newsletter() {
   return (
     <section className="relative z-10 py-6 sm:py-8 md:py-10 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Seamless Banner with user's uploaded background asset (bottom dark stripe clipped cleanly) */}
+        {/* Pure green capsule banner (crops out baked white outer margin & bottom stripe from PNG) */}
         <div
-          className="relative w-full py-6 sm:py-7 lg:py-8 px-6 sm:px-14 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 overflow-hidden rounded-[28px]"
+          className="relative w-full py-6 sm:py-7 lg:py-8 px-8 sm:px-14 lg:px-20 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 overflow-hidden rounded-3xl sm:rounded-full shadow-[0_12px_32px_rgba(20,50,25,0.12)]"
           style={{
             backgroundImage: "url('/images/newsletter-banner.png')",
-            backgroundSize: "100% 118%",
-            backgroundPosition: "center top",
+            backgroundSize: "106% 142%",
+            backgroundPosition: "center 42%",
             backgroundRepeat: "no-repeat",
           }}
         >
