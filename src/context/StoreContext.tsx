@@ -47,7 +47,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState<"home" | "contact">("home");
+  const [currentPage, setCurrentPage] = useState<"home" | "contact">(() => {
+    if (typeof window !== "undefined" && window.location.pathname.toLowerCase().startsWith("/contact")) {
+      return "contact";
+    }
+    return "home";
+  });
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -77,8 +82,23 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     } catch {}
   }, [wishlist]);
 
+  useEffect(() => {
+    const handlePopState = () => {
+      const isContact = window.location.pathname.toLowerCase().startsWith("/contact");
+      setCurrentPage(isContact ? "contact" : "home");
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
   const navigateTo = (page: "home" | "contact", sectionId?: string) => {
     setCurrentPage(page);
+    if (typeof window !== "undefined") {
+      const targetUrl = page === "contact" ? "/contact" : "/";
+      if (window.location.pathname !== targetUrl) {
+        window.history.pushState({}, "", targetUrl);
+      }
+    }
     if (page === "contact") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;

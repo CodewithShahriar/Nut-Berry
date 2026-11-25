@@ -186,15 +186,15 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors">
+            <button onClick={() => navigateTo("contact")} className="hover:text-white transition-colors">
               Privacy Policy
             </button>
             <span className="text-gray-600">|</span>
-            <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors">
+            <button onClick={() => navigateTo("contact")} className="hover:text-white transition-colors">
               Terms &amp; Conditions
             </button>
             <span className="text-gray-600">|</span>
-            <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors">
+            <button onClick={() => navigateTo("contact")} className="hover:text-white transition-colors">
               Contact Us
             </button>
           </div>
