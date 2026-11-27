@@ -82,25 +82,25 @@ export default function FeaturedProducts() {
           </div>
         </div>
 
-        {/* 4 Column Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {/* 2-col Mobile / 4-col Desktop Product Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
           {displayProducts.map((product) => {
             const wish = isWishlisted(product.id);
 
             return (
               <div
                 key={product.id}
-                className="product-card group relative bg-[#F0F1EC] rounded-3xl border border-[#e0e1d8] p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300"
+                className="product-card group relative bg-[#F0F1EC] rounded-2xl sm:rounded-3xl border border-[#e0e1d8] p-2.5 sm:p-4 lg:p-5 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 {/* Top Wishlist Heart Icon */}
-                <div className="flex justify-end mb-1">
+                <div className="flex justify-end mb-0.5 sm:mb-1">
                   <button
                     onClick={() => toggleWishlist(product.id)}
                     aria-label="Add to Wishlist"
                     className="p-1 rounded-full text-gray-400 hover:text-red-500 hover:bg-red-50/80 transition-colors"
                   >
                     <Heart
-                      className={`w-5 h-5 transition-transform active:scale-125 ${
+                      className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform active:scale-125 ${
                         wish ? "fill-red-500 text-red-500" : "stroke-[1.75]"
                       }`}
                     />
@@ -110,7 +110,7 @@ export default function FeaturedProducts() {
                 {/* Product Packet Image (matched #F0F1EC blend + tight pixel crop to remove edge lines) */}
                 <div
                   onClick={() => setQuickViewProduct(product)}
-                  className="relative w-full h-[215px] sm:h-[230px] bg-[#F0F1EC] rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center mb-2"
+                  className="relative w-full h-[135px] sm:h-[210px] lg:h-[230px] bg-[#F0F1EC] rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center mb-1.5 sm:mb-2"
                 >
                   <img
                     src={product.image}
@@ -121,7 +121,7 @@ export default function FeaturedProducts() {
                   />
 
                   {/* Quick View Overlay Pill */}
-                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="hidden sm:flex absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity items-center justify-center">
                     <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-[#133527] text-xs font-bold px-3 py-1.5 rounded-full shadow">
                       <Eye className="w-3.5 h-3.5" /> Quick View
                     </span>
@@ -132,22 +132,22 @@ export default function FeaturedProducts() {
                 <div className="pt-1">
                   <h3
                     onClick={() => setQuickViewProduct(product)}
-                    className="text-sm sm:text-base font-bold text-[#133527] hover:text-[#256047] cursor-pointer line-clamp-1 transition-colors"
+                    className="text-xs sm:text-sm lg:text-base font-bold text-[#133527] hover:text-[#256047] cursor-pointer line-clamp-1 transition-colors"
                   >
                     {product.name}
                   </h3>
 
                   {/* Price Row & Cart Action */}
-                  <div className="flex items-center justify-between mt-3 pt-2 border-t border-[#f2ede4]">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-base sm:text-lg font-black text-[#133527]">
+                  <div className="flex items-center justify-between mt-2 sm:mt-3 pt-1.5 sm:pt-2 border-t border-[#e2e0d7]">
+                    <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+                      <span className="text-sm sm:text-base lg:text-lg font-black text-[#133527]">
                         ৳{product.price}
                       </span>
-                      <span className="text-xs text-gray-400 line-through">
+                      <span className="text-[10px] sm:text-xs text-gray-400 line-through">
                         ৳{product.originalPrice}
                       </span>
                       {product.discountPercent > 0 && (
-                        <span className="text-[10px] sm:text-[11px] font-bold text-[#c2571a] bg-[#fee2cc] px-2 py-0.5 rounded-md">
+                        <span className="hidden xs:inline-block sm:inline-block text-[9px] sm:text-[11px] font-bold text-[#c2571a] bg-[#fee2cc] px-1.5 sm:px-2 py-0.5 rounded-md">
                           {product.discountPercent}% OFF
                         </span>
                       )}
@@ -157,9 +157,9 @@ export default function FeaturedProducts() {
                     <button
                       onClick={() => addToCart(product, 1, product.weight)}
                       aria-label="Add to Cart"
-                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#133527] hover:bg-[#20523b] text-white flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-sm"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#133527] hover:bg-[#20523b] text-white flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-sm shrink-0"
                     >
-                      <ShoppingBag className="w-4 h-4" />
+                      <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </button>
                   </div>
                 </div>

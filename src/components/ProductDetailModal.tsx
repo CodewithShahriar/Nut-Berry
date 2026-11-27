@@ -37,24 +37,24 @@ export default function ProductDetailModal() {
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
       />
 
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#ece5d8] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-[#ece5d8] z-10 animate-in fade-in zoom-in-95 duration-200">
         {/* Close Button */}
         <button
           onClick={() => setQuickViewProduct(null)}
-          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/80 hover:bg-gray-100 flex items-center justify-center text-gray-600 shadow-sm"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-9 h-9 rounded-full bg-white/90 hover:bg-gray-100 flex items-center justify-center text-gray-600 shadow-sm"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Product Image */}
-          <div className="relative aspect-square md:aspect-auto bg-[#FAF7F2] p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-[#ece5d8]">
-            <div className="relative w-full h-full min-h-[260px]">
+          <div className="relative aspect-[4/3] md:aspect-auto bg-[#F0F1EC] p-6 sm:p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-[#ece5d8]">
+            <div className="relative w-full h-full min-h-[190px] sm:min-h-[260px]">
               <Image
                 src={quickViewProduct.image}
                 alt={quickViewProduct.name}
                 fill
-                className="object-contain"
+                className="object-contain mix-blend-multiply brightness-[1.08] contrast-[1.03]"
               />
             </div>
             {quickViewProduct.discountPercent > 0 && (

@@ -24,8 +24,8 @@ export default function Hero() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Light readability tint only on small mobile screens */}
-        <div className="absolute inset-0 bg-black/35 sm:hidden pointer-events-none" />
+        {/* Smooth mobile gradient so left text is crisp while right bowl stays visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c2217]/95 via-[#0c2217]/75 to-[#0c2217]/25 sm:hidden pointer-events-none" />
       </div>
 
       {/* Floating Decorative Leaf Accent */}
@@ -39,23 +39,23 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-24 sm:pb-28 md:pb-32 lg:pb-36 min-h-[540px] sm:min-h-[580px] md:min-h-[620px] lg:min-h-[660px] flex flex-col justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-20 md:pt-24 lg:pt-28 pb-14 sm:pb-28 md:pb-32 lg:pb-36 min-h-[420px] sm:min-h-[580px] md:min-h-[620px] lg:min-h-[660px] flex flex-col justify-center">
         <div className="max-w-xl lg:max-w-2xl space-y-3 sm:space-y-3.5">
           {/* Top Tag: PREMIUM & NATURAL — */}
           <div className="flex items-center gap-2">
-            <span className="text-[#a7f3d0] text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase">
+            <span className="text-[#a7f3d0] text-[11px] sm:text-sm font-extrabold tracking-[0.2em] uppercase">
               PREMIUM &amp; NATURAL
             </span>
-            <span className="w-9 h-[2px] bg-[#a7f3d0]/80 inline-block rounded-full"></span>
+            <span className="w-8 sm:w-9 h-[2px] bg-[#a7f3d0]/80 inline-block rounded-full"></span>
           </div>
 
           {/* Heading: DRY FRUITS (Ultra Bold Sans-serif) */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase leading-[0.95] drop-shadow-sm font-sans">
+          <h1 className="text-[42px] sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase leading-[0.95] drop-shadow-sm font-sans">
             DRY FRUITS
           </h1>
 
           {/* Subheading: NATURE'S POWER SNACK */}
-          <h2 className="text-lg sm:text-xl md:text-2xl font-black tracking-[0.14em] text-white uppercase pt-0.5">
+          <h2 className="text-base sm:text-xl md:text-2xl font-black tracking-[0.14em] text-white uppercase pt-0.5">
             NATURE&apos;S POWER SNACK
           </h2>
 

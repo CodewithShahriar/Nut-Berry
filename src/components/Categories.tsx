@@ -20,29 +20,34 @@ export default function Categories() {
   };
 
   return (
-    <section className="relative z-20 w-full -mt-8 sm:-mt-10 md:-mt-12 lg:-mt-14 mb-6 sm:mb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Decorative Leaf peeking on Left edge of Categories */}
-        <LeafCluster className="absolute -left-10 sm:-left-14 lg:-left-16 top-1/2 -translate-y-1/2 w-24 sm:w-28 lg:w-32 z-30 rotate-6" />
+    <section className="relative z-20 w-full -mt-6 sm:-mt-10 md:-mt-12 lg:-mt-14 mb-5 sm:mb-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative">
+        {/* Decorative Leaf peeking on Left edge of Categories (hidden on narrow mobile) */}
+        <LeafCluster className="hidden sm:block absolute -left-14 lg:-left-16 top-1/2 -translate-y-1/2 w-28 lg:w-32 z-30 rotate-6" />
         {/* Floating Master Container aligned flush with all other sections (max-w-7xl) */}
-        <div className="w-full bg-[#FAF7F2] rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 border border-[#e5decb] shadow-[0_14px_45px_rgba(0,0,0,0.08)]">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-5 lg:gap-6">
+        <div className="w-full bg-[#FAF7F2] rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 lg:p-6 border border-[#e5decb] shadow-[0_14px_45px_rgba(0,0,0,0.08)]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3.5 sm:gap-5 lg:gap-6">
             {/* Left Title: EXPLORE OUR CATEGORIES */}
-            <div className="shrink-0 flex flex-col justify-center select-none text-left min-w-[140px] sm:min-w-[160px] lg:min-w-[175px] pr-2">
-              <span className="text-[10px] sm:text-[11px] font-black tracking-[0.22em] text-[#1c2e24] uppercase block">
-                EXPLORE
+            <div className="shrink-0 flex items-end md:items-start justify-between md:flex-col md:justify-center select-none text-left min-w-[140px] sm:min-w-[160px] lg:min-w-[175px] md:pr-2">
+              <div>
+                <span className="text-[10px] sm:text-[11px] font-black tracking-[0.22em] text-[#1c2e24] uppercase block">
+                  EXPLORE
+                </span>
+                <span className="text-xl sm:text-3xl lg:text-[34px] font-black uppercase tracking-tight text-[#14261d] inline md:block leading-[0.95] mt-1 font-sans">
+                  OUR{" "}
+                </span>
+                <span className="text-xl sm:text-3xl lg:text-[34px] font-black uppercase tracking-tight text-[#14261d] inline md:block leading-[0.95] md:mt-0.5 font-sans">
+                  CATEGORIES
+                </span>
+                <div className="w-10 sm:w-12 h-1 bg-[#256047] rounded-full mt-1.5 sm:mt-2.5" />
+              </div>
+              <span className="md:hidden text-[11px] font-bold text-[#256047] tracking-wide">
+                Swipe &rarr;
               </span>
-              <span className="text-2xl sm:text-3xl lg:text-[34px] font-black uppercase tracking-tight text-[#14261d] block leading-[0.95] mt-1 font-sans">
-                OUR
-              </span>
-              <span className="text-2xl sm:text-3xl lg:text-[34px] font-black uppercase tracking-tight text-[#14261d] block leading-[0.95] mt-0.5 font-sans">
-                CATEGORIES
-              </span>
-              <div className="w-10 sm:w-12 h-1 bg-[#256047] rounded-full mt-2 sm:mt-2.5" />
             </div>
 
-            {/* Right 5 Category Cards filling full remaining width */}
-            <div className="flex-1 w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 lg:gap-4">
+            {/* Right 5 Category Cards: Horizontal snap carousel on mobile, 5-col grid on md+ */}
+            <div className="flex-1 w-full flex overflow-x-auto snap-x snap-mandatory no-scrollbar md:grid md:grid-cols-5 gap-2.5 sm:gap-3 lg:gap-4 pb-1 md:pb-0">
               {CATEGORIES.map((cat) => {
                 const isActive = selectedCategory === cat.slug;
 
@@ -53,7 +58,7 @@ export default function Categories() {
                     role="button"
                     tabIndex={0}
                     title={`View ${cat.name}`}
-                    className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-full aspect-[1.12/1] ${
+                    className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 shrink-0 w-[124px] sm:w-[148px] md:w-full snap-start aspect-[1.12/1] ${
                       isActive
                         ? "ring-4 ring-[#256047] scale-[1.03] shadow-md"
                         : "hover:ring-2 hover:ring-[#256047]/40"

@@ -57,7 +57,7 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 inset-x-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#ece6db]/80 shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Brand Logo */}
           <button
             type="button"
@@ -323,7 +323,7 @@ export default function Navbar() {
         )}
       </div>
       </header>
-      <div className="h-20 shrink-0" aria-hidden="true" />
+      <div className="h-16 sm:h-20 shrink-0" aria-hidden="true" />
     </>
   );
 }

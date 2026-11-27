@@ -25,12 +25,12 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about-section" className="relative z-10 py-14 md:py-24 bg-transparent">
+    <section id="about-section" className="relative z-10 py-10 sm:py-14 md:py-24 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Decorative Leaf peeking in open top-right space of AboutSection (clear of all text) */}
+        {/* Decorative Leaf peeking in open top-right space of AboutSection (hidden on narrow mobile) */}
         <LeafCluster
           flip
-          className="absolute -right-8 sm:-right-14 lg:-right-20 -top-4 sm:-top-6 w-24 sm:w-28 lg:w-36 z-10 -rotate-12"
+          className="hidden sm:block absolute -right-14 lg:-right-20 -top-6 w-28 lg:w-36 z-10 -rotate-12"
         />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Bowl Photo on Burlap */}

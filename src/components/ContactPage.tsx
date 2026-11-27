@@ -83,7 +83,7 @@ export default function ContactPage() {
       {/* Main Content */}
       <section className="relative z-10 py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <LeafCluster className="absolute -left-10 sm:-left-14 lg:-left-16 top-10 w-24 sm:w-28 lg:w-32 z-30 rotate-6" />
+          <LeafCluster className="hidden sm:block absolute -left-14 lg:-left-16 top-10 w-28 lg:w-32 z-30 rotate-6" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             {/* Left Column: Direct Info & Store Details */}
